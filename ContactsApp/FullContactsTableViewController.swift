@@ -11,14 +11,14 @@ class FullContactsTableViewController: UITableViewController {
     
     var personContact = Person.infoPersone()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+    
+    override func tableView(_ tableView: UITableView,
+                            viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel()
+        label.text = "Hello!"
+        label.backgroundColor = UIColor.lightGray
+        return label
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -32,14 +32,11 @@ class FullContactsTableViewController: UITableViewController {
         let person = personContact[indexPath.row]
         var content = cell.defaultContentConfiguration()
         content.text = person.fullName
-
+        
         cell.contentConfiguration = content
-
+        
         return cell
     }
-    
-//    override func tableView(_ tableView: UITableView,
-//                            titleForHeaderInSection section: Int) -> String? {
-//    }
-
 }
+
+
